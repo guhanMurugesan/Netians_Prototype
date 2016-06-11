@@ -1,0 +1,19 @@
+﻿@model IList<IndianCitizenService.Models.RenderMapDetail>
+
+@{
+    ViewBag.Title = "Live Map";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<span class="glyphicon glyphicon-log-out" id="logout"></span>
+<div id="livemap" style="width:80%;height:80%;"></div>
+<button id="StatusChange" class="btn btn-success" onclick="saveCleanStatus()">
+    Clean
+</button>
+@*<button id="userMap" class="btn btn-success">
+        User Service
+    </button>*@
+<script>
+    var g_renderMapDetail = JSON.parse('@Html.Raw(Json.Encode(Model))');
+</script>
+@Scripts.Render("~/Scripts/Base/liveMap.js")

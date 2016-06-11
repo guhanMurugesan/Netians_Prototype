@@ -1,0 +1,98 @@
+﻿@model int?
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            @if (Model == null)
+            {
+                <img src="/Base/PieChart" />
+            }
+            else if (Model == 1)
+            {
+                <img src="/Base/BarChart" />
+            }
+            else if (Model == 2)
+            {
+                <img src="/Base/AreawiseChart" />
+            }
+            else if (Model == 3)
+            {
+                <img src="/Base/CityWise" />
+            }
+            else
+            {
+                <table class="table" style="border:1px solid">
+                    <thead>
+                        <tr style="background-color:#293d3d;color:white;">
+                            <th>Street Name</th>
+                            <th>High</th>
+                            <th>Medium</th>
+                            <th>Low</th>
+                            <th>Concern free</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="danger">
+                            <td>Industrial Estate</td>
+                            <td>50%</td>
+                            <td>20%</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>Yet to deploy</td>
+                            <td><button type="button" class="btn btn-primary">Deploy</button></td>
+                        </tr>
+                        <tr class="warning">
+                            <td>Saibaba Lane</td>
+                            <td>40%</td>
+                            <td>20%</td>
+                            <td>10%</td>
+                            <td>25%</td>
+                            <td>deployed</td>
+                            <td><button type="button" disabled="disabled" class="btn btn-primary">Deploy</button></td>
+                        </tr>
+                        <tr class="warning">
+                            <td>Station Road</td>
+                            <td>30%</td>
+                            <td>30%</td>
+                            <td>10%</td>
+                            <td>25%</td>
+                            <td>Work in progress</td>
+                            <td><button type="button" disabled="disabled" class="btn btn-primary">Deploy</button></td>
+                        </tr>
+                        <tr class="warning">
+                            <td>Labour Colny 6th Cross Street</td>
+                            <td>28%</td>
+                            <td>18%</td>
+                            <td>30%</td>
+                            <td>15%</td>
+                            <td>deployed</td>
+                            <td><button type="button" disabled="disabled" class="btn btn-primary">Deploy</button></td>
+                        </tr>
+                        <tr class="success">
+                            <td>Kathipara Road</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>100%</td>
+                            <td>Cleaned</td>
+                            <td><button type="button" class="btn btn-primary" disabled="disabled">Deploy</button></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            }
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+</div>

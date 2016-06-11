@@ -1,0 +1,56 @@
+﻿@using IndianCitizenService.Common;
+@{
+    ViewBag.Title = "Index";
+}
+
+<header>
+    <center>
+        Indian CitizenService
+    </center>
+</header>
+<span class="badge" id="notification">1</span>
+<span class="glyphicon glyphicon-log-out" id="logout"></span>
+
+<div id="map" style="width:80%;height:80%;"></div>
+
+<div id="votePoll">
+    <table cellpadding="10">
+        <tr>
+            <td colspan="2"><center><p class="label label-default">choose your area category</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="closeCategory" class="btn btn-danger">X</button></center></td>
+        </tr>
+        <tr>
+            <td>
+                <img src="@Url.Content("~/Content/Images/category1.jpg")" width="150" height="125" class="voteImg" onclick="toggleMapForSelectedImage(this);" id="category1" />
+            </td>
+            <td>
+                <img src="@Url.Content("~/Content/Images/category2.jpg")" width="150" height="125" class="voteImg" onclick="toggleMapForSelectedImage(this);" id="category2" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="@Url.Content("~/Content/Images/category3.jpg")" width="150" height="125" class="voteImg" onclick="toggleMapForSelectedImage(this);" id="category3" />
+            </td>
+            <td>
+                <img src="@Url.Content("~/Content/Images/category4.jpg")" width="150" height="125" class="voteImg" onclick="toggleMapForSelectedImage(this);" id="category4" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><center><textarea placeholder="Comments....." id="txtComment"></textarea></center></td>
+        </tr>
+        <tr>
+            <td colspan="2"><center><button id ="btnPostVote" onclick="PostVote()" class="btn btn-primary">vote</button></center></td>
+        </tr>
+
+    </table>
+</div>
+
+@*<button id="goLive" class="btn btn-success"> Go Live</button>*@
+<button id="voteNotify">vote</button>
+<script>
+    var g_notification = '@ViewBag.Notification';
+    if (g_notification == 'True')
+        $('#notification').text('1');
+    else
+        $('#notification').text('0');
+</script>
+@Scripts.Render("~/Scripts/Base/userMap.js");
